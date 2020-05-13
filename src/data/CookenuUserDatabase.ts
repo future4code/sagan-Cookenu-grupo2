@@ -28,5 +28,13 @@ export class CookenuUserDatabase extends BaseDatabase{
         console.log("Usuário criado com sucesso!")
     }
 
+    public async getUserByEmail(email: string): Promise<any>{
+        const result = await this.connection()
+            .select("*")
+            .from(CookenuUserDatabase.TABLE_NAME)
+            .where({email})
+        return result[0]
+    }
+
 
 }

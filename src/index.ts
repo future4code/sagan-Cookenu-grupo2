@@ -3,6 +3,7 @@ import { AddressInfo } from "net";
 import dotenv from "dotenv";
 import { CookenuUserDatabase } from "./data/CookenuUserDatabase";
 import { signupEndpoint } from "./endpoints/signupEndpoint";
+import { loginEndpoint } from "./endpoints/loginEndpoint";
 
 // import { IdGenerator } from "./service/IdGenerator";
 // import { UserDatabase } from "./data/UserDatabase";
@@ -23,6 +24,7 @@ app.use(express.json());
 
 
 app.post("/signup", signupEndpoint)
+app.post("/login", loginEndpoint)
 
 
 
