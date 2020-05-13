@@ -1,6 +1,8 @@
 import express, { Request, Response } from "express";
 import { AddressInfo } from "net";
 import dotenv from "dotenv";
+import { CookenuUserDatabase } from "./data/CookenuUserDatabase";
+import { signupEndpoint } from "./endpoints/signupEndpoint";
 
 // import { IdGenerator } from "./service/IdGenerator";
 // import { UserDatabase } from "./data/UserDatabase";
@@ -11,6 +13,16 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
+
+// const newCookenuUserDatabase = new CookenuUserDatabase()
+// async function main(){
+//     console.log(await newCookenuUserDatabase.getTableContent("CookenuUser"))
+// }
+// main()
+
+
+
+app.post("/signup", signupEndpoint)
 
 
 
