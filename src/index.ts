@@ -22,7 +22,7 @@ app.use(express.json());
 
 app.post("/signup", signupEndpoint)
 app.post("/login", loginEndpoint)
-app.post("/create-recipe", createRecipeEndpoint)
+app.post("/recipe", createRecipeEndpoint)
 
 app.get("/user/profile", getProfileEndpoint)
 
