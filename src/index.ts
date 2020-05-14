@@ -1,13 +1,10 @@
-import express, { Request, Response } from "express";
+import express from "express";
 import { AddressInfo } from "net";
 import dotenv from "dotenv";
-import { CookenuUserDatabase } from "./data/CookenuUserDatabase";
 import { signupEndpoint } from "./endpoints/signupEndpoint";
 import { loginEndpoint } from "./endpoints/loginEndpoint";
-
-// import { IdGenerator } from "./service/IdGenerator";
-// import { UserDatabase } from "./data/UserDatabase";
-// import { Authenticator } from "./service/Authenticator";
+import { getProfileEndpoint } from "./endpoints/getProfileEndpoint";
+import { createRecipeEndpoint } from "./endpoints/createRecipeEndpoint";
 
 dotenv.config();
 
@@ -25,10 +22,9 @@ app.use(express.json());
 
 app.post("/signup", signupEndpoint)
 app.post("/login", loginEndpoint)
+app.post("/create-recipe", createRecipeEndpoint)
 
-
-
-// =======================================================
+app.get("/user/profile", getProfileEndpoint)
 
 
 const server = app.listen(process.env.PORT || 3000, () => {
