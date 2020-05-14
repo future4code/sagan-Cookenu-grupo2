@@ -6,6 +6,8 @@ import { loginEndpoint } from "./endpoints/loginEndpoint";
 import { getProfileEndpoint } from "./endpoints/getProfileEndpoint";
 import { createRecipeEndpoint } from "./endpoints/createRecipeEndpoint";
 import { getUserByIdEndpoint } from "./endpoints/getUserByIdEndpoint";
+import { getRecipeByIdEndpoint } from "./endpoints/getRecipeByIdEndpoint";
+import { followUserEndpoint } from "./endpoints/followUserEndpoint";
 
 dotenv.config();
 
@@ -24,10 +26,11 @@ app.use(express.json());
 app.post("/signup", signupEndpoint)
 app.post("/login", loginEndpoint)
 app.post("/recipe", createRecipeEndpoint)
+app.post("/user/follow", followUserEndpoint)
 
 app.get("/user/profile", getProfileEndpoint)
 app.get("/user/:id", getUserByIdEndpoint)
-app.get("/recipe/:id", getRec )
+app.get("/recipe/:id", getRecipeByIdEndpoint )
 
 
 
