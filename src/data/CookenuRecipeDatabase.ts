@@ -23,5 +23,13 @@ export class CookenuRecipeDatabase extends BaseDatabase{
         console.log("Receita criada com sucesso!")
     }
 
+    public async getRecipeById(id: string): Promise<any>{
+        const result = await this.connection()
+            .select("*")
+            .from(CookenuRecipeDatabase.TABLE_NAME)
+            .where({id})
+        return result[0]
+    }
+
 
 }
