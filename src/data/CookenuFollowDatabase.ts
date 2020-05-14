@@ -15,5 +15,16 @@ export class CookenuFollowDatabase extends BaseDatabase{
             })
             .into(CookenuFollowDatabase.TABLE_NAME)
         console.log("Stalker eh crime")
-    }    
+    }
+
+    public async deleteUserFollow(
+        userId: string,
+        userToUnfollowId: string
+    ): Promise<void>{
+        await this.connection()
+            .delete()
+            .from(CookenuFollowDatabase.TABLE_NAME)
+            .where({user_id: userId}).and.where({user_to_follow_id: userToUnfollowId})
+        console.log("Stalker deletado!")
+    }
 }
