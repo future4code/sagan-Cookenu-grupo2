@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import { CookenuUserDatabase } from "./data/CookenuUserDatabase";
 import { signupEndpoint } from "./endpoints/signupEndpoint";
 import { loginEndpoint } from "./endpoints/loginEndpoint";
+import { getProfileEndpoint } from "./endpoints/getProfileEndpoint";
 
 // import { IdGenerator } from "./service/IdGenerator";
 // import { UserDatabase } from "./data/UserDatabase";
@@ -25,6 +26,8 @@ app.use(express.json());
 
 app.post("/signup", signupEndpoint)
 app.post("/login", loginEndpoint)
+
+app.get("/user/profile", getProfileEndpoint)
 
 
 

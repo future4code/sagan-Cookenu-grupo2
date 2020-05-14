@@ -36,5 +36,13 @@ export class CookenuUserDatabase extends BaseDatabase{
         return result[0]
     }
 
+    public async getUserById(id: string): Promise<any>{
+        const result = await this.connection()
+            .select("*")
+            .from(CookenuUserDatabase.TABLE_NAME)
+            .where({id})
+        return result[0]
+    }
+
 
 }

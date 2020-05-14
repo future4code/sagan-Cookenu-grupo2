@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-import { IdGenerator } from "../services/IdGenerator";
 import { HashManager } from "../services/HashManager";
 import { CookenuUserDatabase } from "../data/CookenuUserDatabase";
 import { Authenticator } from "../services/Authenticator";
