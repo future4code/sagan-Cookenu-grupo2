@@ -2,7 +2,6 @@ import { Request, Response } from "express";
 import { IdGenerator } from "../services/IdGenerator";
 import { CookenuRecipeDatabase } from "../data/CookenuRecipeDatabase";
 import { Authenticator } from "../services/Authenticator";
-import moment from "moment"
 
 export const createRecipeEndpoint = async (req: Request, res: Response) => {
     try{
@@ -10,8 +9,7 @@ export const createRecipeEndpoint = async (req: Request, res: Response) => {
         
         const recipeData = {
             title: req.body.title,
-            description: req.body.description,
-            creationDate: req.body.creationDate
+            description: req.body.description
         }
 
         const idGenerator = new IdGenerator()
@@ -20,15 +18,13 @@ export const createRecipeEndpoint = async (req: Request, res: Response) => {
         const authenticator = new Authenticator()
         const userData = authenticator.verify(token)
 
-        const transformDateFormate = moment(recipeData.creationDate, "DD/MM/YYYY").toDate()
-        const creationDateFormatted = new Date(transformDateFormate)
 
         const cookenuRecipeDatabase = new CookenuRecipeDatabase()
         await cookenuRecipeDatabase.createRecipe(
             id,
             recipeData.title,
             recipeData.description,
-            creationDateFormatted,
+            new Date(),
             userData.id
         )
 
