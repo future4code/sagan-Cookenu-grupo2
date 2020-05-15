@@ -32,9 +32,9 @@ app.post("/user/follow", followUserEndpoint)
 app.post("/user/unfollow", unfollowUserEndpoint)
 
 app.get("/user/profile", getProfileEndpoint)
-app.get("/user/feed", getFeedRecipesEndpoint )
-// app.get("/user/:id", getUserByIdEndpoint)
+app.get("/user/:id", getUserByIdEndpoint)
 app.get("/recipe/:id", getRecipeByIdEndpoint )
+app.get("/feed", getFeedRecipesEndpoint )
 
 
 

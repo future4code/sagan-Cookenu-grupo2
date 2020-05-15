@@ -22,7 +22,10 @@ export const loginEndpoint = async (req: Request, res: Response) => {
         }
 
         const authenticator = new Authenticator()
-        const token = authenticator.generationToken({id: user.id})
+        const token = authenticator.generationToken({
+            id: user.id,
+            role: user.role
+        })
 
         res.status(200).send({token})
 
