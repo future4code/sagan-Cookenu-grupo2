@@ -8,6 +8,7 @@ import { createRecipeEndpoint } from "./endpoints/createRecipeEndpoint";
 import { getUserByIdEndpoint } from "./endpoints/getUserByIdEndpoint";
 import { getRecipeByIdEndpoint } from "./endpoints/getRecipeByIdEndpoint";
 import { followUserEndpoint } from "./endpoints/followUserEndpoint";
+import { unfollowUserEndpoint } from "./endpoints/unfollowUserEndpoint";
 
 dotenv.config();
 
@@ -27,7 +28,7 @@ app.post("/signup", signupEndpoint)
 app.post("/login", loginEndpoint)
 app.post("/recipe", createRecipeEndpoint)
 app.post("/user/follow", followUserEndpoint)
-// app.post("/user/unfollow", unfollowUserEndpoint)
+app.post("/user/unfollow", unfollowUserEndpoint)
 
 app.get("/user/profile", getProfileEndpoint)
 app.get("/user/:id", getUserByIdEndpoint)
