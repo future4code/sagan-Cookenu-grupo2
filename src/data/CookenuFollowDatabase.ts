@@ -2,7 +2,7 @@ import { BaseDatabase } from "./BaseDatabase";
 
 export class CookenuFollowDatabase extends BaseDatabase{
 
-    private static TABLE_NAME: string = "CookenuFollow"
+    private static TABLE_NAME: string = "CookenuUserFollow"
 
     public async createUserToFollow(
         userId: string,
