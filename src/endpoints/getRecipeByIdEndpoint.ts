@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { Authenticator } from "../services/Authenticator";
 import { CookenuRecipeDatabase } from "../data/CookenuRecipeDatabase";
-import moment from 'moment'
+import moment from 'moment';
 
 export const getRecipeByIdEndpoint = async (req: Request, res: Response) => {
     try{

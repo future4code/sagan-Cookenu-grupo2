@@ -42,7 +42,6 @@ export class CookenuUserDatabase extends BaseDatabase{
             .from(CookenuUserDatabase.TABLE_NAME)
             .where({id})
         return result[0]
-    }
-
+    }    
 
 }
