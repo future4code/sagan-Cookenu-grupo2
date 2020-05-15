@@ -15,14 +15,16 @@ export class CookenuUserDatabase extends BaseDatabase{
         id: string,
         email: string,
         name: string,
-        password: string
+        password: string,
+        role: string
     ): Promise<void> {
         await this.connection()
             .insert({
                 id,
                 email,
                 name,
-                password
+                password, 
+                role
             })
             .into(CookenuUserDatabase.TABLE_NAME)
         console.log("Usuário criado com sucesso!")

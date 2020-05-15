@@ -9,6 +9,7 @@ export const signupEndpoint = async(req: Request, res: Response) => {
         const email = req.body.email
         const name = req.body.name
         const password = req.body.password
+        const role = req.body.role
     
         if(password.length < 6){
             throw new Error("A senha deve ser maior que 6 caracteres")
@@ -25,16 +26,17 @@ export const signupEndpoint = async(req: Request, res: Response) => {
             id,
             email,
             name,
-            hashPassword
+            hashPassword,
+            role
         )
 
         const authenticator = new Authenticator()
-        const token = authenticator.generationToken(
-            {id}
-        )
+        const token = authenticator.generationToken({
+            id, 
+            role
+        })
 
         res.status(200).send({token})
-
 
     } catch(err){
 
