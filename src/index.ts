@@ -1,6 +1,7 @@
 import express from "express";
 import { AddressInfo } from "net";
 import dotenv from "dotenv";
+
 import { signupEndpoint } from "./endpoints/signupEndpoint";
 import { loginEndpoint } from "./endpoints/loginEndpoint";
 import { getProfileEndpoint } from "./endpoints/getProfileEndpoint";
@@ -16,14 +17,11 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
-
 // const newCookenuUserDatabase = new CookenuUserDatabase()
 // async function main(){
 //     console.log(await newCookenuUserDatabase.getTableContent("CookenuUser"))
 // }
 // main()
-
-
 
 app.post("/signup", signupEndpoint)
 app.post("/login", loginEndpoint)
@@ -32,12 +30,10 @@ app.post("/user/follow", followUserEndpoint)
 app.post("/user/unfollow", unfollowUserEndpoint)
 
 app.get("/user/profile", getProfileEndpoint)
+app.get("/user/feed", getFeedRecipesEndpoint )
 app.get("/user/:id", getUserByIdEndpoint)
+
 app.get("/recipe/:id", getRecipeByIdEndpoint )
-app.get("/feed", getFeedRecipesEndpoint )
-
-
-
 
 const server = app.listen(process.env.PORT || 3000, () => {
     if (server) {
