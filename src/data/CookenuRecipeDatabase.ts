@@ -46,7 +46,8 @@ export class CookenuRecipeDatabase extends BaseDatabase {
         FROM CookenuRecipes r
         JOIN CookenuUserFollow f ON r.user_id = f.user_to_follow_id
         JOIN CookenuUser u ON f.user_to_follow_id = u.id
-        WHERE f.user_id = "${id}";
+        WHERE f.user_id = "${id}"
+        ORDER BY creation_date DESC;
         `)
         const feed = []
         for (const item of result[0]){
